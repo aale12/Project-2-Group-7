@@ -5,9 +5,9 @@
 // Dependencies
 // =============================================================
 
-// Requiring our models
-const db = require("../models");
+// // Requiring our models
+// const db = require("../models");
 
-// Routes
-// =============================================================
-module.exports = function(app) {};
+// // Routes
+// // =============================================================
+// module.exports = function(app) {};
