@@ -11,13 +11,13 @@
     "extends": "prettier",
     "plugins": [
         "prettier"
-      ],
+    ],
     "rules": {
-        "no-duplicate-case":"error",
-        "no-empty":"error",
-        "no-extra-semi":"error",
+        "no-duplicate-case": "error",
+        "no-empty": "error",
+        "no-extra-semi": "error",
         "no-func-assign": "error",
-        "no-irregular-whitespace":"error",
+        "no-irregular-whitespace": "error",
         "no-trailing-spaces": "error",
         "no-unreachable": "error",
         "curly": "error",
@@ -33,10 +33,6 @@
         "indent": [
             "error",
             4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
         ],
         "quotes": [
             "error",
