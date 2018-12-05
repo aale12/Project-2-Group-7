@@ -7,17 +7,17 @@ module.exports = function(sequelize, DataTypes) {
         events: DataTypes.INTEGER
     });
 
-    Timeline.associate = function(models) {
-        //Each Timeline will belong to 1 User
-        Timeline.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-        //Each Timeline has many Updates
-        Timeline.hasMany(models.Update, {
-            onDelete: "cascade"
-        });
-    };
+    // Timeline.associate = function(models) {
+    //     //Each Timeline will belong to 1 User
+    //     // Timeline.belongsTo(models.User, {
+    //     //     foreignKey: {
+    //     //         allowNull: false
+    //     //     }
+    //     // });
+    //     //Each Timeline has many Updates
+    //     Timeline.hasMany(models.Event, {
+    //         onDelete: "cascade"
+    //     });
+    // };
     return Timeline;
 };
