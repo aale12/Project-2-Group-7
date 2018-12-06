@@ -1,21 +1,51 @@
 "use strict";
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize, Sequelize) {
     let User = sequelize.define("user", {
-        username: DataTypes.STRING,
-        password: DataTypes.STRING
+        firstname: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
+        lastname: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
+        username: {
+            type: Sequelize.TEXT
+        },
+        about: {
+            type: Sequelize.TEXT
+        },
+        email: {
+            type: Sequelize.STRING,
+            validate: {
+                isEmail: true
+            }
+        },
+        password: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        // eslint-disable-next-line camelcase
+        last_login: {
+            type: Sequelize.DATE
+        },
+        status: {
+            type: Sequelize.ENUM("active", "inactive"),
+            defaultValue: "active"
+        }
     });
-    //Each User has many Timeslines, updates, and comments
-    // User.associate = function(models) {
-    //     User.hasMany(models.Timeline, {
-    //         onDelete: "cascade"
-    //     });
-    //     User.hasMany(models.Event, {
-    //         onDelete: "cascade"
-    //     });
-    //     User.hasMany(models.Comment, {
-    //         onDelete: "cascade"
-    //     });
-    // };
     return User;
 };
+//Each User has many Timeslines, updates, and comments
+// User.associate = function(models) {
+//     User.hasMany(models.Timeline, {
+//         onDelete: "cascade"
+//     });
+//     User.hasMany(models.Event, {
+//         onDelete: "cascade"
+//     });
+//     User.hasMany(models.Comment, {
+//         onDelete: "cascade"
+//     });
+// };
