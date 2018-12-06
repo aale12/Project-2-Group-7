@@ -13,7 +13,7 @@ exportsA.dashboard = function(req, res) {
 };
 
 exportsA.logout = function(req, res) {
-    req.session.destroy(function(err) {
+    req.session.destroy(function() {
         res.redirect("/");
     });
 };

@@ -44,7 +44,7 @@ require("./app/config/passport/passport.js")(passport, db.user);
 // =============================================================
 require("./app/routes/html-routes.js")(app);
 //require("./routes/post-api-routes.js")(app);
-const authRoute = require("./app/routes/auth.js")(app, passport);
+require("./app/routes/auth.js")(app, passport);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize
@@ -56,7 +56,7 @@ db.sequelize
         console.log(err, "Something went wrong with the Database Update!");
     });
 
-app.listen(8080, function(err) {
+app.listen(PORT, function(err) {
     if (!err) {
         console.log("Site is live");
     } else {
