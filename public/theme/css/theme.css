@@ -81,6 +81,16 @@ p {
     margin: 0;
 }
 
+.logins {
+    font-size: 1.5vw;
+    color: blue !important;
+}
+
+.ilogo {
+    font-size: 2vw;
+    color: #00aced;
+    
+}
 .table-responsive {
     padding-right: 1px;
 }
