@@ -2,7 +2,10 @@ module.exports = function(sequelize, DataTypes) {
     let Comment = sequelize.define("comment", {
         user: DataTypes.STRING,
         editable: DataTypes.BOOLEAN,
-        description: DataTypes.STRING,
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         comments: DataTypes.INTEGER
     });
 
