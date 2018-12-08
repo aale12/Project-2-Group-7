@@ -7,13 +7,13 @@
 
 // // Routes
 // // =============================================================
-module.exports = function (app) {
-    app.get("/", function (req, res) {
-        res.render("index");
+module.exports = function(app) {
+    app.get("/", function(req, res) {
+        res.render("index", { title: "iPromise - Home" });
     });
 
-    app.get("/signup", function (req, res) {
-        res.render("signup");
+    app.get("/signup", function(req, res) {
+        res.render("signup", { title: "iPromise - Register" });
     });
 
     app.get("/dashboard/charts", function (req, res) {
