@@ -9,10 +9,10 @@
 // // =============================================================
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        res.render("index");
+        res.render("index", { title: "iPromise - Home" });
     });
 
     app.get("/signup", function(req, res) {
-        res.render("signup");
+        res.render("signup", { title: "iPromise - Register" });
     });
 };

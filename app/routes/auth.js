@@ -25,6 +25,14 @@ module.exports = function(app, passport) {
         })
     );
 
+    app.post(
+        "/",
+        passport.authenticate("local-signin", {
+            successRedirect: "/dashboard",
+            failureRedirect: "/signin"
+        })
+    );
+
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated()) {
             return next();
