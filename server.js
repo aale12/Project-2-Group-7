@@ -43,7 +43,10 @@ require("./app/config/passport/passport.js")(passport, db.user);
 // Routes
 // =============================================================
 require("./app/routes/html-routes.js")(app);
-//require("./routes/post-api-routes.js")(app);
+require("./app/routes/timeline-api-routes.js")(app);
+//require("./routes/event-api-routes.js")(app);
+//require("./routes/comment-api-routes.js")(app);
+//require("./routes/user-api-routes.js")(app);
 require("./app/routes/auth.js")(app, passport);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -58,7 +61,7 @@ db.sequelize
 
 app.listen(PORT, function(err) {
     if (!err) {
-        console.log("Site is live");
+        console.log("Site is live on port: " + PORT);
     } else {
         console.log(err);
     }

@@ -794,25 +794,33 @@
                                 </a>
                             </div>
                             <div class="login-form">
-                                {{!-- <form action="" method=""> --}}
+                                <form action="/api/timeline" method="POST">
+                                    <input type="hidden" name="userId" value={{user}}>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input class="au-input au-input--full" type="timelineNewName" name="timelineNewName"
-                                            id="newTimelineName" placeholder="Name">
+                                        <input class="au-input au-input--full" type="text" name="name" placeholder="Timeline Name...">
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input class="au-input au-input--full" type="newTimelineDesc" name="newTimelineDesc"
-                                            id="newTimelineDesc" placeholder="Type Here...">
+                                        <input class="au-input au-input--full" type="text" name="description"
+                                            placeholder="Timeline Description...">
                                     </div>
                                     <div class="form-group">
-                                        <label>Time Limit(Days)</label>
-                                        <input class="au-input au-input--full" type="newTimelineLimit" name="newTimelineLimit"
-                                            id="newTimelineLimit" placeholder="Type Here...">
+                                        <input id="timeLimitCheck" type="checkbox"> Enable Time Limit
                                     </div>
+                                    <div class="form-group" id="hiddenTimelimit">
+                                        <input class="au-input au-input--full" type="text" name="timelimit" placeholder="Time Limit Here (Days)">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="publicCheck" name="public" type="checkbox"> Public
+                                    </div>
+                                    <div class="form-group" name="editable" id="editableCheck">
+                                        <input type="checkbox"> Allow others to add events
+                                    </div>
+
                                     <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Create</button>
-                                    {{!--
-                                </form> --}}
+
+                                </form>
                             </div>
                         </div>
                     </div>
