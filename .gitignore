@@ -63,3 +63,6 @@ typings/
 # eslint 
 .eslintignore
 .eslintrc.json
+
+public/theme/progress-bar.html
+public/theme/table.html
