@@ -1,8 +1,22 @@
+body, html {
+  height: 100%;
+}
 .axis path,
 .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+@media (max-width: 1199px) {
+  .container-fluid {
+      background-image: url("../../assets/images/bg2.png");
+  }
+}
+
+.index-logo {
+  font-size: 4vh;
+  color: #00aced;
 }
 
 .axis text {
@@ -12,6 +26,7 @@
 .axis .tick line {
   stroke: rgba(0, 0, 0, 0.1);
 }
+
 
 .area {
   stroke-width: 1;
