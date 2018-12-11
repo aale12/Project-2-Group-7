@@ -8,6 +8,7 @@ require("dotenv").config();
 const express = require("express");
 const passport = require("passport");
 const session = require("express-session");
+//const path = require("path");
 //const env = require("dotenv").load();
 // Sets up the Express App
 // =============================================================
@@ -31,7 +32,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+// app.use("/static", express.static("public"));
+app.use(express.static("./public"));
 
 // Set Handlebars.
 const exphbs = require("express-handlebars");

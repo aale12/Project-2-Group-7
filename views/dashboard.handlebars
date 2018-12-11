@@ -30,7 +30,7 @@
                             <a href="table">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
-                       
+
                         <li>
                             <a href="#">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
@@ -52,18 +52,18 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="index">
+                            <a class="js-arrow" href="">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="chart">
+                            <a href="/dashboard/chart">
                                 <i class="fas fa-chart-bar"></i>Timelines</a>
                         </li>
                         <li>
                             <a href="table">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
@@ -800,15 +800,16 @@
                                             placeholder="Timeline Description...">
                                     </div>
                                     <div class="form-group">
-                                        <input id="timeLimitCheck" type="checkbox"> Enable Time Limit
+                                        <input id="timeLimitCheck" type="checkbox" value=1> Enable Time Limit
                                     </div>
                                     <div class="form-group" id="hiddenTimelimit">
-                                        <input class="au-input au-input--full" type="text" name="timelimit" placeholder="Time Limit Here (Days)">
+                                        <input class="au-input au-input--full" type="number" name="timelimit"
+                                            placeholder="Time Limit Here (Days)">
                                     </div>
                                     <div class="form-group">
-                                        <input id="publicCheck" name="public" type="checkbox"> Public
+                                        <input id="publicCheck" name="public" type="checkbox" value=1> Public
                                     </div>
-                                    <div class="form-group" name="editable" id="editableCheck">
+                                    <div class="form-group" name="editable" id="editableCheck" value=1>
                                         <input type="checkbox"> Allow others to add events
                                     </div>
 
