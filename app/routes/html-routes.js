@@ -16,7 +16,7 @@ module.exports = function(app) {
         res.render("signup", { title: "iPromise - Register" });
     });
 
-    app.get("/dashboard/charts", function(req, res) {
+    app.get("/charts", function(req, res) {
         res.render("charts");
     });
 };
