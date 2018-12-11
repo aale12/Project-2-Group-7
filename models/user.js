@@ -34,18 +34,17 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.ENUM("active", "inactive"),
             defaultValue: "active"
         }
-    });
+    }); //Each User has many Timeslines, updates, and comments
+    User.associate = function(models) {
+        User.hasMany(models.Timeline, {
+            onDelete: "cascade"
+        });
+        // User.hasMany(models.Event, {
+        //     onDelete: "cascade"
+        // });
+        // User.hasMany(models.Comment, {
+        //     onDelete: "cascade"
+        // });
+    };
     return User;
 };
-//Each User has many Timeslines, updates, and comments
-// User.associate = function(models) {
-//     User.hasMany(models.Timeline, {
-//         onDelete: "cascade"
-//     });
-//     User.hasMany(models.Event, {
-//         onDelete: "cascade"
-//     });
-//     User.hasMany(models.Comment, {
-//         onDelete: "cascade"
-//     });
-// };
