@@ -7,7 +7,7 @@ The project is about visualizing timelines with charts and graphs. Users will ha
 
 The app will display a chart starting from a chosen day by the user and will keep monitoring that chart everyday until the user select "Completed".  Other users can also choose to vote on certain events of the timelines, and also add in their own events to the timeline with the owner's permission. 
 
-For example, I create a timeline for my dog Fire Cannon, and on his timeline I create different events of when I feed him, take him for walks and telling him what a good boy he is. My roommate, who's also a member of the app could potentially go to my dog's timeline and add in what the my dog does when I was away at work with my permission.
+For example, I can create a timeline for my dog, Fire Cannon, and on his timeline I could create different events of when I feed him, take him for walks and telling him what a good boy he is. My roommate, who's also a member of the app could potentially go to my dog's timeline and add in what the my dog does when I was away at work with my permission.
 
 ### Table Structure
 
@@ -35,5 +35,5 @@ For example, I create a timeline for my dog Fire Cannon, and on his timeline I c
     * Text
 
 ### New Technologies Used
-* vue.js
+* D3.js
 * passport.js

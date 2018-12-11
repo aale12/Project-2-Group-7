@@ -32,7 +32,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
+<<<<<<< HEAD
 // app.use("/static", express.static("public"));
+=======
+>>>>>>> master
 app.use(express.static("./public"));
 
 // Set Handlebars.
