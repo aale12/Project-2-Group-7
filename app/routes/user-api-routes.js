@@ -10,9 +10,23 @@ const db = require("../../models");
 // // // Routes
 // // // =============================================================
 module.exports = function(app) {
-    app.get("api/user/", function(req, res) {
-        db.User.findAll({}).then(function(dbUser) {
-            res.json(dbUser);
-        });
+    app.get("/api/user/", function(req, res) {
+        db.user
+            .findAll({
+                attributes: {
+                    exclude: [
+                        "password",
+                        "createdAt",
+                        "updatedAt",
+                        "firstname",
+                        "lastname",
+                        "status",
+                        "email"
+                    ]
+                }
+            })
+            .then(function(dbUser) {
+                res.json(dbUser);
+            });
     });
 };
