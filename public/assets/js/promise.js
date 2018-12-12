@@ -1,10 +1,31 @@
 $(document).ready(function() {
-    const newTimelineName = $("#newTimelineName").val();
-    const newTimelineDesc = $("#newTimelineDesc").val();
-    const newTimelineLimit = $("#newTimelineLimit").val();
-    $(document).on("click", "#newTimelineSubmit", createTimeline);
+    // const newTimelineName = $("#newTimelineName").val();
+    // const newTimelineDesc = $("#newTimelineDesc").val();
+    // const newTimelineLimit = $("#newTimelineLimit").val();
+    //$(document).on("click", "#newTimelineSubmit", createTimeline);
+    $("#hiddenTimelimit, #editableCheck").hide();
 
-    function createTimeline() {
-        console.log(newTimelineName, newTimelineDesc, newTimelineLimit);
-    }
+    //show timelimit on checkBox
+    $(function() {
+        $("#timeLimitCheck").change(function() {
+            if ($("#timeLimitCheck").is(":checked")) {
+                $("#hiddenTimelimit").fadeIn();
+            } else {
+                $("#hiddenTimelimit")
+                    .fadeOut()
+                    .val("");
+            }
+        });
+    });
+    $(function() {
+        $("#publicCheck").change(function() {
+            if ($("#publicCheck").is(":checked")) {
+                $("#editableCheck").fadeIn();
+            } else {
+                $("#editableCheck")
+                    .fadeOut()
+                    .val("");
+            }
+        });
+    });
 });

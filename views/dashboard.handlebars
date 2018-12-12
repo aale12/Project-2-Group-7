@@ -26,6 +26,19 @@
                             <a href="charts">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
+<<<<<<< HEAD
+                        <li>
+                            <a href="table">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+
+=======
+>>>>>>> master
                     </ul>
                 </div>
             </nav>
@@ -42,13 +55,29 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="index">
+                            <a class="js-arrow" href="">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
+<<<<<<< HEAD
+                            <a href="/dashboard/chart">
+                                <i class="fas fa-chart-bar"></i>Timelines</a>
+                        </li>
+                        <li>
+                            <a href="table">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+
+=======
                             <a href="charts">
                                 <i class="fas fa-chart-bar"></i>Timelines</a>
                         </li>
+>>>>>>> master
                     </ul>
                 </nav>
             </div>
@@ -638,25 +667,34 @@
                                 </a>
                             </div>
                             <div class="login-form">
-                                {{!-- <form action="" method=""> --}}
+                                <form action="/api/timeline" method="POST">
+                                    <input type="hidden" name="userId" value={{user}}>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input class="au-input au-input--full" type="timelineNewName" name="timelineNewName"
-                                            id="newTimelineName" placeholder="Name">
+                                        <input class="au-input au-input--full" type="text" name="name" placeholder="Timeline Name...">
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input class="au-input au-input--full" type="newTimelineDesc" name="newTimelineDesc"
-                                            id="newTimelineDesc" placeholder="Type Here...">
+                                        <input class="au-input au-input--full" type="text" name="description"
+                                            placeholder="Timeline Description...">
                                     </div>
                                     <div class="form-group">
-                                        <label>Time Limit(Days)</label>
-                                        <input class="au-input au-input--full" type="newTimelineLimit" name="newTimelineLimit"
-                                            id="newTimelineLimit" placeholder="Type Here...">
+                                        <input id="timeLimitCheck" type="checkbox" value=1> Enable Time Limit
                                     </div>
+                                    <div class="form-group" id="hiddenTimelimit">
+                                        <input class="au-input au-input--full" type="number" name="timelimit"
+                                            placeholder="Time Limit Here (Days)">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="publicCheck" name="public" type="checkbox" value=1> Public
+                                    </div>
+                                    <div class="form-group" name="editable" id="editableCheck" value=1>
+                                        <input type="checkbox"> Allow others to add events
+                                    </div>
+
                                     <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Create</button>
-                                    {{!--
-                                </form> --}}
+
+                                </form>
                             </div>
                         </div>
                     </div>

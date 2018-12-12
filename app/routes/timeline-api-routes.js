@@ -6,40 +6,30 @@
 // =============================================================
 
 // // Requiring our models
-// const db = require("../models");
-
+const db = require("../../models");
 // // Routes
 // // =============================================================
 module.exports = function(app) {
-    app.post(
-        "/login",
-        passport.authenticate("local", { failureRedirect: "/login" }),
-        function(req, res) {
-            res.redirect("/");
-        }
-    );
-};
-
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
-
-// Requiring our Todo model
-let db = require("../models");
-
-// Routes
-// =============================================================
-module.exports = function(app) {
-    // GET route for getting all of the posts
-    app.get("/api/posts/", function(req, res) {
-        db.Post.findAll({}).then(function(dbPost) {
+    // GET route for getting all of the timelines
+    app.get("/api/timeline/", function(req, res) {
+        db.Timeline.findAll({}).then(function(dbTimeline) {
+            res.json(dbTimeline);
+        });
+    });
+    // POST route for saving a new timeline
+    app.post("/api/timeline", function(req, res) {
+        console.log(req.body);
+        db.Timeline.create({
+            userId: req.body.userId,
+            name: req.body.name,
+            description: req.body.description,
+            timelimit: req.body.timelimit,
+            public: req.body.public,
+            editable: req.body.editable
+        }).then(function(dbPost) {
             res.json(dbPost);
         });
     });
-
     // Get route for returning posts of a specific category
     app.get("/api/posts/category/:category", function(req, res) {
         db.Post.findAll({
@@ -57,18 +47,6 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
-        });
-    });
-
-    // POST route for saving a new post
-    app.post("/api/posts", function(req, res) {
-        console.log(req.body);
-        db.Post.create({
-            title: req.body.title,
-            body: req.body.body,
-            category: req.body.category
         }).then(function(dbPost) {
             res.json(dbPost);
         });
