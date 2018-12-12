@@ -3,6 +3,8 @@ $(document).ready(function() {
     // const newTimelineDesc = $("#newTimelineDesc").val();
     // const newTimelineLimit = $("#newTimelineLimit").val();
     //$(document).on("click", "#newTimelineSubmit", createTimeline);
+    const dbusername = [];
+    const dbuserId = [];
     const userId = $("#userIdDashboard").val();
     console.log(userId);
     $("#hiddenTimelimit, #editableCheck").hide();
@@ -39,4 +41,28 @@ $(document).ready(function() {
             }
         });
     }
+    $.get("/api/user/", function(data) {
+        console.log(data);
+        // eslint-disable-next-line prettier/prettier
+        data.forEach((e) => {
+            dbusername.push(e.username);
+            dbuserId.push(e.id);
+        });
+        console.log(dbusername);
+    }).then(function() {
+        $.get("/api/event", function(data) {
+            const revData = data.slice(0).reverse();
+            // eslint-disable-next-line prettier/prettier
+            revData.forEach((e) => {
+                $("#eventsBody").append(
+                    `<tr>
+                <td>${moment(e.createdAt).format("MMM Do, YYYY hh:mm:ss")}</td>
+                <td>${e.id}</td>
+                <td>${e.description}</td>
+                <td>${dbusername[e.userId - 1]}</td>
+                </tr>`
+                );
+            });
+        });
+    });
 });

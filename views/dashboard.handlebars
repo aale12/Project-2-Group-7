@@ -185,7 +185,8 @@
                                     <div class="clearfix">
                                         <div class="content">
                                             {{!--
-                                            <a class="logins zmdi zmdi-power" data-toggle="modal" data-target="#modalLoginForm"></a>href=""> Log In</a> --}}
+                                            <a class="logins zmdi zmdi-power" data-toggle="modal" data-target="#modalLoginForm"></a>href="">
+                                            Log In</a> --}}
                                             <a href="logout" class="btn btn-default btn-rounded">
                                                 <button class="btn btn-outline-danger my-2 my-sm-0">Logout</button>
                                             </a>
@@ -209,7 +210,8 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Timelines</h2>
-                                    <button id="addTimelineButtonDashboard" data-toggle="modal" data-target="#modalTimelineForm" class="au-btn au-btn-icon au-btn--blue">
+                                    <button id="addTimelineButtonDashboard" data-toggle="modal" data-target="#modalTimelineForm"
+                                        class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>
                                         </i>add timeline</button>
                                 </div>
@@ -251,8 +253,9 @@
                                                 <th class="text-right">Members</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
+                                        <tbody id="eventsBody">
+
+                                            {{!-- <tr>
                                                 <td>2018-11-29 05:57</td>
                                                 <td>100398</td>
                                                 <td>Run 3 days a week for 3 months</td>
@@ -299,7 +302,7 @@
                                                 <td>100393</td>
                                                 <td>Pokemon Hunter Champion</td>
                                                 <td class="text-right">aale12</td>
-                                            </tr>
+                                            </tr> --}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -575,7 +578,8 @@
                                                             <img src="images/icon/avatar-02.jpg" alt="John Smith">
                                                         </div>
                                                         <div class="recei-mess-list">
-                                                            <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
+                                                            <div class="recei-mess">Lorem ipsum dolor sit amet,
+                                                                consectetur adipiscing elit non iaculis</div>
                                                             <div class="recei-mess">Donec tempor, sapien ac viverra</div>
                                                         </div>
                                                     </div>
@@ -584,14 +588,16 @@
                                                     <span class="mess-time">30 Sec ago</span>
                                                     <div class="send-mess__inner">
                                                         <div class="send-mess-list">
-                                                            <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
+                                                            <div class="send-mess">Lorem ipsum dolor sit amet,
+                                                                consectetur adipiscing elit non iaculis</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="au-chat-textfield">
                                                 <form class="au-form-icon">
-                                                    <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
+                                                    <input class="au-input au-input--full au-input--h65" type="text"
+                                                        placeholder="Type a message">
                                                     <button class="au-input-icon">
                                                         <i class="zmdi zmdi-camera"></i>
                                                     </button>
@@ -620,7 +626,8 @@
     </div>
     <!--Modls-->
     <!--Modals-->
-    <div class="modal fade" id="modalTimelineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalTimelineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <!--Start Modal Content-->
@@ -643,19 +650,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input class="au-input au-input--full" type="text" name="description" placeholder="Timeline Description...">
+                                        <input class="au-input au-input--full" type="text" name="description"
+                                            placeholder="Timeline Description...">
                                     </div>
                                     <div class="form-group">
                                         <input id="timeLimitCheck" type="checkbox" value=0> Enable Time Limit
                                     </div>
                                     <div class="form-group" id="hiddenTimelimit">
-                                        <input class="au-input au-input--full" type="number" value=0 name="timelimit" placeholder="Time Limit Here (Days)">
+                                        <input class="au-input au-input--full" type="number" value=0 name="timelimit"
+                                            placeholder="Time Limit Here (Days)">
                                     </div>
                                     <div class="form-group">
                                         <input id="publicCheck" name="public" type="checkbox" value=1> Public
                                     </div>
                                     <div class="form-group" id="editableCheck">
-                                        <input type="checkbox" name="editable" id="editableCheck2" value=1> Allow others to add events
+                                        <input type="checkbox" name="editable" id="editableCheck2" value=1> Allow
+                                        others to add events
                                     </div>
 
                                     <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Create</button>
@@ -669,9 +679,9 @@
             </div>
         </div>
     </div>
+    {{!--
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="assets/js/promise.js"></script>
+        crossorigin="anonymous"></script> --}}
 </body>
 
 <!-- end document-->
