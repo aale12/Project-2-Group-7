@@ -35,5 +35,5 @@ For example, I can create a timeline for my dog, Fire Cannon, and on his timelin
     * Text
 
 ### New Technologies Used
-* D3.js
+* chart.js
 * passport.js
