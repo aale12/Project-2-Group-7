@@ -14,6 +14,11 @@ exportsA.dashboard = function(req, res) {
 };
 
 exportsA.chart = function(req, res) {
+    //const percent = [];
+    //const events = [];
+    // app.get("api/event" + req.user.id, function(data) {
+    //     console.log(data);
+    // });
     console.log(req);
     res.render("charts", {
         title: "iPromise - Chart",
