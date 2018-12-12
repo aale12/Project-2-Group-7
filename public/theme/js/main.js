@@ -1,6 +1,6 @@
 (function ($) {
-    // USE STRICT
-    "use strict";
+    // // USE STRICT
+    // "use strict";
 
     try {
         //WidgetChart 2
@@ -71,107 +71,6 @@
                             hoverRadius: 4
                         }
                     }
-                }
-            });
-        }
-
-        // Recent Report
-        const brandProduct = 'rgba(0,181,233,0.8)'
-        const brandService = 'rgba(0,173,95,0.8)'
-
-        var elements = 10
-        var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
-        var data2 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90]
-    
-
-    } catch (error) {
-        console.log(error);
-    }
-
-    try {
-
-        // Recent Report 2
-        const bd_brandProduct2 = 'rgba(0,181,233,0.9)'
-        const bd_brandService2 = 'rgba(0,173,95,0.9)'
-        const brandProduct2 = 'rgba(0,181,233,0.2)'
-        const brandService2 = 'rgba(0,173,95,0.2)'
-
-        var data3 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
-        var data4 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90]
-
-        var ctx = document.getElementById("recent-rep2-chart");
-        if (ctx) {
-            ctx.height = 230;
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
-                    datasets: [
-                        {
-                            label: 'My First dataset',
-                            backgroundColor: brandService2,
-                            borderColor: bd_brandService2,
-                            pointHoverBackgroundColor: '#fff',
-                            borderWidth: 0,
-                            data: data3
-
-                        },
-                        {
-                            label: 'My Second dataset',
-                            backgroundColor: brandProduct2,
-                            borderColor: bd_brandProduct2,
-                            pointHoverBackgroundColor: '#fff',
-                            borderWidth: 0,
-                            data: data4
-
-                        }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: true,
-                    legend: {
-                        display: false
-                    },
-                    responsive: true,
-                    scales: {
-                        xAxes: [{
-                            gridLines: {
-                                drawOnChartArea: true,
-                                color: '#f2f2f2'
-                            },
-                            ticks: {
-                                fontFamily: "Poppins",
-                                fontSize: 12
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                maxTicksLimit: 5,
-                                stepSize: 50,
-                                max: 150,
-                                fontFamily: "Poppins",
-                                fontSize: 12
-                            },
-                            gridLines: {
-                                display: true,
-                                color: '#f2f2f2'
-
-                            }
-                        }]
-                    },
-                    elements: {
-                        point: {
-                            radius: 0,
-                            hitRadius: 10,
-                            hoverRadius: 4,
-                            hoverBorderWidth: 3
-                        },
-                        line: {
-                            tension: 0
-                        }
-                    }
-
                 }
             });
         }

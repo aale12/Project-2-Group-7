@@ -10,7 +10,7 @@ const db = require("../../models");
 // // Routes
 // // =============================================================
 module.exports = function(app) {
-    // GET route for getting all of the timelines
+    // GET route for getting all of the events
     app.get("/api/event/", function(req, res) {
         db.Event.findAll({}).then(function(dbEvent) {
             res.json(dbEvent);
@@ -24,16 +24,16 @@ module.exports = function(app) {
             TimelineId: req.body.TimelineId,
             name: req.body.name,
             description: req.body.description,
-            editable: req.body.editable
-        }).then(function(dbPost) {
-            res.json(dbPost);
+            percentage: req.body.percentage
+        }).then(function() {
+            res.redirect("/dashboard/chart");
         });
     });
-    // Get route for returning event of a specific category
-    app.get("/api/event/category/:category", function(req, res) {
-        db.Post.findAll({
+    // Get route for returning event of a specefic user
+    app.get("/api/event/:id", function(req, res) {
+        db.Event.findAll({
             where: {
-                category: req.params.category
+                userId: req.params.id
             }
         }).then(function(dbPost) {
             res.json(dbPost);

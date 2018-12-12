@@ -4,13 +4,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        editable: {
-            type: DataTypes.BOOLEAN,
-            default: true,
-            allowNull: false
-        },
         description: {
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        percentage: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
