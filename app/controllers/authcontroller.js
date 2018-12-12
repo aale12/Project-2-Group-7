@@ -10,11 +10,16 @@ exportsA.signin = function(req, res) {
 
 exportsA.dashboard = function(req, res) {
     console.log(req.user);
-    res.render("dashboard", { user: req.user.id });
+    res.render("dashboard", { user: parseInt(req.user.id) });
 };
 
 exportsA.chart = function(req, res) {
-    res.render("charts", { title: "iPromise - Chart" });
+    console.log(req);
+    res.render("charts", {
+        title: "iPromise - Chart",
+        user: parseInt(req.user.id),
+        timeline: 1
+    });
 };
 
 exportsA.logout = function(req, res) {
