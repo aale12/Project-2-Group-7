@@ -4,16 +4,18 @@
 
     try {
         //WidgetChart 2
+        var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
         var ctx = document.getElementById("widgetChart2");
         if (ctx) {
-            ctx.height = 130;
+            ctx.height = 300;
+            ctx.width = 300;
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                     type: 'line',
                     datasets: [{
-                        data: [1, 18, 9, 17, 34, 22],
+                        data: data1,
                         label: 'Dataset',
                         backgroundColor: 'transparent',
                         borderColor: 'rgba(255,255,255,.55)',
@@ -51,12 +53,12 @@
                         yAxes: [{
                             display: false,
                             ticks: {
-                                display: false,
+                                display: true,
                             }
                         }]
                     },
                     title: {
-                        display: false,
+                        display: true,
                     },
                     elements: {
                         line: {
@@ -80,80 +82,6 @@
         var elements = 10
         var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
         var data2 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90]
-
-        var ctx = document.getElementById("recent-rep-chart");
-        if (ctx) {
-            ctx.height = 250;
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
-                    datasets: [
-                        {
-                            label: 'My First dataset',
-                            backgroundColor: brandService,
-                            borderColor: 'transparent',
-                            pointHoverBackgroundColor: '#fff',
-                            borderWidth: 0,
-                            data: data1
-
-                        },
-                        {
-                            label: 'My Second dataset',
-                            backgroundColor: brandProduct,
-                            borderColor: 'transparent',
-                            pointHoverBackgroundColor: '#fff',
-                            borderWidth: 0,
-                            data: data2
-
-                        }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: true,
-                    legend: {
-                        display: false
-                    },
-                    responsive: true,
-                    scales: {
-                        xAxes: [{
-                            gridLines: {
-                                drawOnChartArea: true,
-                                color: '#f2f2f2'
-                            },
-                            ticks: {
-                                fontFamily: "Poppins",
-                                fontSize: 12
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                maxTicksLimit: 5,
-                                stepSize: 50,
-                                max: 150,
-                                fontFamily: "Poppins",
-                                fontSize: 12
-                            },
-                            gridLines: {
-                                display: true,
-                                color: '#f2f2f2'
-
-                            }
-                        }]
-                    },
-                    elements: {
-                        point: {
-                            radius: 0,
-                            hitRadius: 10,
-                            hoverRadius: 4,
-                            hoverBorderWidth: 3
-                        }
-                    }
-
-                }
-            });
-        }
     
 
     } catch (error) {
