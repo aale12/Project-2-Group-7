@@ -32,10 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-<<<<<<< HEAD
-// app.use("/static", express.static("public"));
-=======
->>>>>>> master
 app.use(express.static("./public"));
 
 // Set Handlebars.
@@ -49,9 +45,8 @@ require("./app/config/passport/passport.js")(passport, db.user);
 // =============================================================
 require("./app/routes/html-routes.js")(app);
 require("./app/routes/timeline-api-routes.js")(app);
-//require("./routes/event-api-routes.js")(app);
-//require("./routes/comment-api-routes.js")(app);
-//require("./routes/user-api-routes.js")(app);
+require("./app/routes/event-api-routes.js")(app);
+require("./app/routes/user-api-routes.js")(app);
 require("./app/routes/auth.js")(app, passport);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

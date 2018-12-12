@@ -15,14 +15,21 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         description: {
+            allowNull: false,
             type: DataTypes.STRING
         },
         timelimit: {
             defaultValue: 0,
             type: DataTypes.INTEGER
         },
-        events: {
-            default: 0,
+        timelimitCheck: {
+            defaultValue: 0,
+            type: DataTypes.INTEGER
+        },
+        // eslint-disable-next-line camelcase
+        events_count: {
+            defaultValue: 0,
+            allowNull: false,
             type: DataTypes.INTEGER
         }
     });
@@ -34,10 +41,13 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
-        //Each Timeline has many Updates
-        // Timeline.hasMany(models.Event, {
-        //     onDelete: "cascade"
-        // });
+        //Each Timeline has many Events
+        Timeline.hasMany(models.Event, {
+            as: "events",
+            foreignKey: "userId",
+            targetKey: "userId",
+            onDelete: "cascade"
+        });
     };
     return Timeline;
 };

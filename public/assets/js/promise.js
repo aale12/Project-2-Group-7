@@ -3,6 +3,8 @@ $(document).ready(function() {
     // const newTimelineDesc = $("#newTimelineDesc").val();
     // const newTimelineLimit = $("#newTimelineLimit").val();
     //$(document).on("click", "#newTimelineSubmit", createTimeline);
+    const userId = $("#userIdDashboard").val();
+    console.log(userId);
     $("#hiddenTimelimit, #editableCheck").hide();
 
     //show timelimit on checkBox
@@ -28,4 +30,13 @@ $(document).ready(function() {
             }
         });
     });
+    checkForExistingTimeline(userId);
+    function checkForExistingTimeline(id) {
+        $.get("/api/timeline/" + id, function(data) {
+            console.log(data.length);
+            if (data.length !== 0) {
+                $("#addTimelineButtonDashboard").hide();
+            }
+        });
+    }
 });
