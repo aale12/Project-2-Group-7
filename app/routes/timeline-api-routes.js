@@ -16,6 +16,17 @@ module.exports = function(app) {
             res.json(dbTimeline);
         });
     });
+    //get timelines that belong to that user
+    app.get("/api/timeline/:userId", function(req, res) {
+        db.Timeline.findAll({
+            where: {
+                userId: req.params.userId
+            }
+        }).then(function(dbTimelineUser) {
+            console.log(dbTimelineUser);
+            res.json(dbTimelineUser);
+        });
+    });
     // POST route for saving a new timeline
     app.post("/api/timeline", function(req, res) {
         console.log(req.body);
@@ -26,52 +37,29 @@ module.exports = function(app) {
             timelimit: req.body.timelimit,
             public: req.body.public,
             editable: req.body.editable
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function() {
+            res.redirect("/dashboard/chart");
         });
     });
-    // Get route for returning posts of a specific category
-    app.get("/api/posts/category/:category", function(req, res) {
-        db.Post.findAll({
-            where: {
-                category: req.params.category
-            }
-        }).then(function(dbPost) {
-            res.json(dbPost);
-        });
-    });
-
-    // Get route for retrieving a single post
-    app.get("/api/posts/:id", function(req, res) {
-        db.Post.findOne({
+    // DELETE route for deleting timelines
+    app.delete("/api/timeline/:id", function(req, res) {
+        db.Timeline.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
-        });
-    });
-
-    // DELETE route for deleting posts
-    app.delete("/api/posts/:id", function(req, res) {
-        db.Post.destroy({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbTimeline) {
+            res.json(dbTimeline);
         });
     });
 
     // PUT route for updating posts
-
-    app.put("/api/posts", function(req, res) {
-        db.Post.update(req.body, {
+    app.put("/api/timeline", function(req, res) {
+        db.Timeline.update(req.body, {
             where: {
                 id: req.body.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbTimeline) {
+            res.json(dbTimeline);
         });
     });
 };

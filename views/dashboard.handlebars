@@ -46,8 +46,13 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="charts">
+                            <a href="/dashboard/chart">
                                 <i class="fas fa-chart-bar"></i>Timelines</a>
+                        </li>
+                        
+                        <li>
+                        <a href="charts">
+                            <i class="fas fa-chart-bar"></i>Timelines</a>
                         </li>
                     </ul>
                 </nav>
@@ -207,30 +212,32 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Timelines</h2>
-                                    <button data-toggle="modal" data-target="#modalTimelineForm" class="au-btn au-btn-icon au-btn--blue"><i
-                                            class="zmdi zmdi-plus"></i>
+                                    <button id="addTimelineButtonDashboard" data-toggle="modal" data-target="#modalTimelineForm"
+                                        class="au-btn au-btn-icon au-btn--blue"><i class="zmdi zmdi-plus"></i>
                                         </i>add timeline</button>
                                 </div>
                             </div>
                         </div>
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-calendar-alt"></i>
+                                <a href="/dashboard/chart">
+                                    <div class="overview-item overview-item--c2">
+                                        <div class="overview__inner">
+                                            <div class="overview-box clearfix">
+                                                <div class="icon">
+                                                    <i class="zmdi zmdi-shopping-cart"></i>
+                                                </div>
+                                                <div class="text">
+                                                    <h2>50</h2>
+                                                    <span>Events</span>
+                                                </div>
                                             </div>
-                                            <div class="text">
-                                                <h2>50</h2>
-                                                <span>Events</span>
+                                            <div class="overview-chart">
+                                                <canvas id="widgetChart2"></canvas>
                                             </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart2"></canvas>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         <div class="row">
@@ -634,12 +641,12 @@
                         </button>
                         <div class="login-content">
                             <div class="login-logo ilogo">
-                                <a href="index">New Timeline
+                                <a href="#">New Timeline
                                 </a>
                             </div>
                             <div class="login-form">
                                 <form action="/api/timeline" method="POST">
-                                    <input type="hidden" name="userId" value={{user}}>
+                                    <input id="userIdDashboard" type="hidden" name="userId" value={{user}}>
                                     <div class="form-group">
                                         <label>Name</label>
                                         <input class="au-input au-input--full" type="text" name="name" placeholder="Timeline Name...">
@@ -650,17 +657,18 @@
                                             placeholder="Timeline Description...">
                                     </div>
                                     <div class="form-group">
-                                        <input id="timeLimitCheck" type="checkbox" value=1> Enable Time Limit
+                                        <input id="timeLimitCheck" type="checkbox" value=0> Enable Time Limit
                                     </div>
                                     <div class="form-group" id="hiddenTimelimit">
-                                        <input class="au-input au-input--full" type="number" name="timelimit"
+                                        <input class="au-input au-input--full" type="number" value=0 name="timelimit"
                                             placeholder="Time Limit Here (Days)">
                                     </div>
                                     <div class="form-group">
                                         <input id="publicCheck" name="public" type="checkbox" value=1> Public
                                     </div>
-                                    <div class="form-group" name="editable" id="editableCheck" value=1>
-                                        <input type="checkbox"> Allow others to add events
+                                    <div class="form-group" id="editableCheck">
+                                        <input type="checkbox" name="editable" id="editableCheck2" value=1> Allow
+                                        others to add events
                                     </div>
 
                                     <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Create</button>

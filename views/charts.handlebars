@@ -4,6 +4,54 @@
 <div style="width: 75%">
 <canvas id="timeline"></canvas>
 </div>
+<!--Main Content-->
+<a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalEventForm">
+    <button class="btn btn-outline-secondary my-2 my-sm-0">Add Event</button>
+</a>
+<!--Modals-->
+<div class="modal fade" id="modalEventForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!--Start Modal Content-->
+            <div class="container">
+                <div class="login-wrap">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="login-content">
+                        <div class="login-logo ilogo">
+                            <a href="#">New Event
+                            </a>
+                        </div>
+                        <div class="event-form">
+                            <form action="/api/event" method="POST">
+                                <input type="hidden" name="userId" value={{user}}>
+                                <input type="hidden" name="TimelineId" value={{timeline}}>
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input class="au-input au-input--full" type="text" name="name" placeholder="What's the name of your event?">
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input class="au-input au-input--full" type="text" name="description" placeholder="Describe your achievement here.">
+                                </div>
+                                <div class="form-group" id="timelineCompletion">
+                                    What is your percentage completion for your timeline?
+                                    <input class="au-input au-input--full" type="number" value=0 name="timelimit"
+                                        placeholder="%Completion">
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Add
+                                    Event</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Modal Content-->
+        </div>
+    </div>
+</div>
+<script src="/assets/js/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
 
 <script>
@@ -137,3 +185,4 @@
     });
 
 </script>
+

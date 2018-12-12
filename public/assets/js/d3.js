@@ -1,6 +1,6 @@
 function addAxesAndLegend(svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
-    var legendWidth = 200,
-        legendHeight = 100;
+    var legendWidth = 0,
+        legendHeight = 0;
 
     // clipping to make sure nothing appears behind legend
     svg.append('clipPath')
@@ -35,43 +35,7 @@ function addAxesAndLegend(svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
         .attr('class', 'legend')
         .attr('transform', 'translate(' + (chartWidth - legendWidth) + ', 0)');
 
-    legend.append('rect')
-        .attr('class', 'legend-bg')
-        .attr('width', legendWidth)
-        .attr('height', legendHeight);
 
-    legend.append('rect')
-        .attr('class', 'outer')
-        .attr('width', 75)
-        .attr('height', 20)
-        .attr('x', 10)
-        .attr('y', 10);
-
-    legend.append('text')
-        .attr('x', 115)
-        .attr('y', 25)
-        .text('5% - 95%');
-
-    legend.append('rect')
-        .attr('class', 'inner')
-        .attr('width', 75)
-        .attr('height', 20)
-        .attr('x', 10)
-        .attr('y', 40);
-
-    legend.append('text')
-        .attr('x', 115)
-        .attr('y', 55)
-        .text('25% - 75%');
-
-    legend.append('path')
-        .attr('class', 'median-line')
-        .attr('d', 'M10,80L85,80');
-
-    legend.append('text')
-        .attr('x', 115)
-        .attr('y', 85)
-        .text('Median');
 }
 
 function drawPaths(svg, data, x, y) {
@@ -184,8 +148,8 @@ function startTransitions(svg, chartWidth, chartHeight, rectClip, markers, x) {
 }
 
 function makeChart(data, markers) {
-    var svgWidth = 960,
-        svgHeight = 500,
+    var svgWidth = 1000,
+        svgHeight = 600,
         margin = { top: 20, right: 20, bottom: 40, left: 40 },
         chartWidth = svgWidth - margin.left - margin.right,
         chartHeight = svgHeight - margin.top - margin.bottom;
@@ -219,7 +183,7 @@ function makeChart(data, markers) {
 }
 
 var parseDate = d3.time.format('%Y-%m-%d').parse;
-d3.json('../assets/json/data.json', function (error, rawData) {
+d3.json('assets/json/data.json', function (error, rawData) {
     if (error) {
         console.error(error);
         return;
@@ -236,7 +200,7 @@ d3.json('../assets/json/data.json', function (error, rawData) {
         };
     });
 
-    d3.json('../assets/json/markers.json', function (error, markerData) {
+    d3.json('assets/json/marker.json', function (error, markerData) {
         if (error) {
             console.error(error);
             return;

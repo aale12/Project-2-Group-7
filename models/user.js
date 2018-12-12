@@ -36,12 +36,12 @@ module.exports = function(sequelize, Sequelize) {
         }
     }); //Each User has many Timeslines, updates, and comments
     User.associate = function(models) {
-        User.hasMany(models.Timeline, {
+        User.hasOne(models.Timeline, {
             onDelete: "cascade"
         });
-        // User.hasMany(models.Event, {
-        //     onDelete: "cascade"
-        // });
+        User.hasMany(models.Event, {
+            onDelete: "cascade"
+        });
         // User.hasMany(models.Comment, {
         //     onDelete: "cascade"
         // });
