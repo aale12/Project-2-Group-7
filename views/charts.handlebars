@@ -1,13 +1,17 @@
 {{!--
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="/assets/js/d3.js"></script> --}}
-<div style="width: 75%">
-<canvas id="timeline"></canvas>
+<div class="container">
+    <div>
+        <canvas id="timeline"></canvas>
+        <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalEventForm">
+            <button class="btn btn-outline-secondary my-2 my-sm-0">Add Event</button>
+        </a>
+    </div>
 </div>
+
 <!--Main Content-->
-<a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalEventForm">
-    <button class="btn btn-outline-secondary my-2 my-sm-0">Add Event</button>
-</a>
+
 <!--Modals-->
 <div class="modal fade" id="modalEventForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -37,7 +41,7 @@
                                 </div>
                                 <div class="form-group" id="timelineCompletion">
                                     What is your percentage completion for your timeline?
-                                    <input class="au-input au-input--full" type="number" value=0 name="timelimit"
+                                    <input class="au-input au-input--full" type="number" value=0 name="percentage"
                                         placeholder="%Completion">
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Add
@@ -51,138 +55,146 @@
         </div>
     </div>
 </div>
-<script src="/assets/js/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 <script>
-    const percentage = [30, 12, 19, 3, 5, 2, 3, 30, 12, 19, 3, 5, 2, 3]
-    const events = ["pink", "Red", "Blue", "Yellow", "Green", "Purple", "Orange", "pink", "Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
-    let ctx = document.getElementById("timeline").getContext('2d');
-    let myChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: events,
-            datasets: [
-                {
-                    label: "Percentage of completion",
-                    data: percentage,
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                    ],
-                    borderColor: [
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)"
-                    ],
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            scales: {
-                yAxes: [
+
+    const percentage = []
+    const events = [];
+    $.get("/api/event/" + {{ user }}, function (data) {
+        data.forEach((e) => {
+            percentage.push(e.percentage);
+            events.push(e.description);
+        });
+    }).then(() => {
+        let ctx = document.getElementById("timeline").getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: events,
+                datasets: [
                     {
-                        ticks: {
-                            min: 0,
-                            max: 100,
-                            stepSize: 10,
-                            AtZero: false
-                        }
+                        label: "Percentage of completion",
+                        data: percentage,
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                        ],
+                        borderColor: [
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)"
+                        ],
+                        borderWidth: 1
                     }
                 ]
             },
-            legend: {
-                display: false,
-            },
-            title: {
-                display: true,
-                text: 'Timelines and Events',
-                fontSize: 20,
-                fontColor: '#00aced',
-                padding: 30,
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                min: 0,
+                                max: 100,
+                                stepSize: 10,
+                                AtZero: false
+                            }
+                        }
+                    ]
+                },
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: true,
+                    text: 'Timelines and Events',
+                    fontSize: 20,
+                    fontColor: '#00aced',
+                    padding: 30,
+                }
             }
-        }
+        });
     });
 
-</script>
 
+</script>
