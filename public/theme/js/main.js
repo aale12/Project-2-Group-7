@@ -4,16 +4,18 @@
 
     try {
         //WidgetChart 2
+        var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
         var ctx = document.getElementById("widgetChart2");
         if (ctx) {
-            ctx.height = 130;
+            ctx.height = 300;
+            ctx.width = 300;
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                     type: 'line',
                     datasets: [{
-                        data: [1, 18, 9, 17, 34, 22],
+                        data: data1,
                         label: 'Dataset',
                         backgroundColor: 'transparent',
                         borderColor: 'rgba(255,255,255,.55)',
@@ -51,12 +53,12 @@
                         yAxes: [{
                             display: false,
                             ticks: {
-                                display: false,
+                                display: true,
                             }
                         }]
                     },
                     title: {
-                        display: false,
+                        display: true,
                     },
                     elements: {
                         line: {
