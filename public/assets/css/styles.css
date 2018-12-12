@@ -83,3 +83,7 @@ body, html {
 .marker text {
   text-anchor: middle;
 }
+
+.navbar {
+  display: block !important;
+}
