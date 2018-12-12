@@ -1,8 +1,12 @@
 {{!--
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="/assets/js/d3.js"></script> --}}
-<div style="width: 75%">
-<canvas id="timeline"></canvas>
+<div class="container-fluid text-center">
+    <a class=" ilogo navbar" href="/dashboard">iPromise
+    </a>
+</div>
+<div style="width: 80%">
+    <canvas id="timeline"></canvas>
 </div>
 <!--Main Content-->
 <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#modalEventForm">
@@ -37,11 +41,10 @@
                                 </div>
                                 <div class="form-group" id="timelineCompletion">
                                     What is your percentage completion for your timeline?
-                                    <input class="au-input au-input--full" type="number" value=0 name="timelimit"
-                                        placeholder="%Completion">
+                                    <input class="au-input au-input--full" type="number" value=0 name="timelimit" placeholder="%Completion">
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Add
-                                    Event</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" id="newTimelineSubmit">Add Event
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -185,4 +188,3 @@
     });
 
 </script>
-
